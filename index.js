@@ -2,8 +2,6 @@ let moreItemsBtn = document.querySelector(".moreItemsBtn");
 let lessItemsBtn = document.querySelector(".lessItemsBtn");
 let savePaginationState = document.querySelector(".savePaginationState");
 
-
-
 let currentPage = 1;
 let limitPerPage = 3;
 
@@ -13,16 +11,22 @@ let templa;
 // 0.1 more/less btns
 function moreItemsChange() {
     limitPerPage++;
-    loadTemplate();
+    // loadTemplate();
     goToPage();
     loadData();
 }
 
 function lessItemsChange() {
     limitPerPage--;
-    loadTemplate();
+    // loadTemplate();
     goToPage();
     loadData();
+
+    if (limitPerPage == 1) {
+        lessItemsBtn.disabled = true;
+    } else {
+        lessItemsBtn.disabled = false;
+    }
 }
 
 //0.2 save state 
